@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication System - Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .demo-notice {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .demo-notice h3 {
+            color: #1976d2;
+            margin: 0 0 10px 0;
+        }
+        .demo-notice p {
+            margin: 5px 0;
+            color: #424242;
+        }
+        .demo-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .demo-btn {
+            padding: 10px 20px;
+            background: #4caf50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        .demo-btn:hover {
+            background: #45a049;
+        }
+        .demo-btn.secondary {
+            background: #2196f3;
+        }
+        .demo-btn.secondary:hover {
+            background: #1976d2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Authentication System - Demo</h1>
+        
+        <div class="demo-notice">
+            <h3>🚀 Demo Mode</h3>
+            <p>This is a frontend demonstration of the user authentication system.</p>
+            <p><strong>To run the full application with PHP backend:</strong></p>
+            <p>1. Install XAMPP from <a href="https://www.apachefriends.org/download.html" target="_blank">apachefriends.org</a></p>
+            <p>2. Copy this project to C:\xampp\htdocs\user_auth_system\</p>
+            <p>3. Start Apache in XAMPP Control Panel</p>
+            <p>4. Visit http://localhost/user_auth_system/</p>
+        </div>
+        
+        <div class="demo-buttons">
+            <button class="demo-btn" onclick="showLogin()">Login Demo</button>
+            <button class="demo-btn secondary" onclick="showRegister()">Register Demo</button>
+            <button class="demo-btn" onclick="showProfile()">Profile Demo</button>
+        </div>
+        
+        <div id="demo-content">
+            <div class="instructions">
+                <h2>System Features</h2>
+                <ul>
+                    <li>✅ User Registration with email validation</li>
+                    <li>✅ Secure login with password hashing</li>
+                    <li>✅ Session management with tokens</li>
+                    <li>✅ Profile management (age, DOB, contact)</li>
+                    <li>✅ Responsive design for all devices</li>
+                    <li>✅ Modern UI with clean styling</li>
+                </ul>
+                
+                <h2>Technology Stack</h2>
+                <p>
+                    <strong>Frontend:</strong> HTML5, CSS3, JavaScript, jQuery<br>
+                    <strong>Backend:</strong> PHP 7.4+ with MySQL, Redis, MongoDB<br>
+                    <strong>Security:</strong> Password hashing, token-based sessions, input validation
+                </p>
+            </div>
+        </div>
+        
+        <div class="links">
+            <a href="login.html" class="btn">View Login Page</a>
+            <a href="register.html" class="btn">View Register Page</a>
+            <a href="profile.html" class="btn">View Profile Page</a>
+        </div>
+    </div>
+
+    <script>
+        function showLogin() {
+            document.getElementById('demo-content').innerHTML = `
+                <div class="form-group">
+                    <h2>Login Form Demo</h2>
+                    <form style="max-width: 400px; margin: 0 auto;">
+                        <div class="form-group">
+                            <label for="demo-email">Email:</label>
+                            <input type="email" id="demo-email" value="demo@example.com" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-password">Password:</label>
+                            <input type="password" id="demo-password" value="demo123" readonly>
+                        </div>
+                        <button type="button" class="btn" onclick="alert('This would authenticate the user in the full version!')">Login</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 20px; color: #666;">
+                        In the full version, this would authenticate against the database and create a session token.
+                    </p>
+                </div>
+            `;
+        }
+        
+        function showRegister() {
+            document.getElementById('demo-content').innerHTML = `
+                <div class="form-group">
+                    <h2>Registration Form Demo</h2>
+                    <form style="max-width: 400px; margin: 0 auto;">
+                        <div class="form-group">
+                            <label for="demo-reg-email">Email:</label>
+                            <input type="email" id="demo-reg-email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-reg-password">Password:</label>
+                            <input type="password" id="demo-reg-password" placeholder="Enter your password">
+                        </div>
+                        <button type="button" class="btn" onclick="alert('This would register the user in the full version!')">Register</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 20px; color: #666;">
+                        In the full version, this would hash the password and store user data in MySQL.
+                    </p>
+                </div>
+            `;
+        }
+        
+        function showProfile() {
+            document.getElementById('demo-content').innerHTML = `
+                <div class="form-group">
+                    <h2>Profile Management Demo</h2>
+                    <form style="max-width: 400px; margin: 0 auto;">
+                        <div class="form-group">
+                            <label for="demo-age">Age:</label>
+                            <input type="number" id="demo-age" placeholder="Enter your age">
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-dob">Date of Birth:</label>
+                            <input type="date" id="demo-dob">
+                        </div>
+                        <div class="form-group">
+                            <label for="demo-contact">Contact Number:</label>
+                            <input type="tel" id="demo-contact" placeholder="Enter your contact number">
+                        </div>
+                        <button type="button" class="btn" onclick="alert('This would save profile data in MongoDB in the full version!')">Update Profile</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 20px; color: #666;">
+                        In the full version, this would store extended profile data in MongoDB and manage sessions with Redis.
+                    </p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
